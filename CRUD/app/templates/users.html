@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang=”en”>
+ <head>
+ <meta charset=”utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+</head>
+</head>
+<body>
+<div class="col-md-5 col-md-offset-3">
+    <h3>CRUD Operations</h3>
+</div>
+<div class="col-md-5 col-md-offset-3">
+    <a href="{% url 'CreateUser' %}" class="btn btn-primary">Add New</a>
+
+
+</div>
+<div class="col-md-5 col-md-offset-3">
+    <table class="table" border="1">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Email</th>
+      <th scope="col">Username</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in users %}
+  <tr>
+      <td>{{ user.id }}</td>
+      <td><a href="{% url 'UpdateUser' user.id  %}">{{ user.Email }}</a></td>
+      <td>{{user.Username}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script src="https://getbootstrap.com/docs/3.3/dist/js/bootstrap.min.js" ></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.js"></script>
+</body>
+</html>
